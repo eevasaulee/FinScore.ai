@@ -7,7 +7,10 @@ def save_model(model, path: str):
 
 
 def load_model(path: str):
-    return joblib.load(path)
+    
+    base = os.getcwd()             
+    full_path = os.path.join(base, path)
+    return joblib.load(full_path)
 
 def save_dataframe(df: pd.DataFrame, path: str):
     os.makedirs(os.path.dirname(path), exist_ok=True)
